@@ -37,7 +37,7 @@ pipeline {
 	   stage("Push Docker Image") {
                 steps {
                    script {
-                      docker.withRegistry('https://gcr.io', 'gcr:kubernetes-gcr') {
+                      docker.withRegistry('https://gcr.io', 'gcr:gcrprojectname') {
                             myimage.push("v1")
                      }
                    }

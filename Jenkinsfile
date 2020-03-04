@@ -30,15 +30,15 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-                      myimage = docker.build("amancloud1985/apache-ubuntu:v1")
+                      myimage = docker.build("gcr.io/kubernetes-253920/amancloud1985/apache-ubuntu:v1")
                    }
                 }
 	   }
 	   stage("Push Docker Image") {
                 steps {
                    script {
-                      docker.withRegistry('https://registry.hub.docker.com', 'docker') {
-                            myimage.push("${env.BUILD_ID}")
+                      docker.withRegistry('https://gcr.io', 'gcr:gcrcredential') {
+                            myimage.push("v1")
                      }
                    }
                 }

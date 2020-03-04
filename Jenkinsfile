@@ -2,10 +2,10 @@ pipeline {
     agent any 	
 	environment {
 		
-		PROJECT_ID = 'third-fire-260721'
-                CLUSTER_NAME = 'k8s-cluster1'
-                LOCATION = 'europe-north1-a'
-                CREDENTIALS_ID = 'kubernetes'		
+		PROJECT_ID = 'kubernetes-253920'
+                CLUSTER_NAME = 'kuberenetes-final'
+                LOCATION = 'us-central1-c'
+                CREDENTIALS_ID = 'aman1985kumar'		
 	}
 	
     stages {	
@@ -30,7 +30,7 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-                      myimage = docker.build("kumarmitdocker/devops:${env.BUILD_ID}")
+                      myimage = docker.build("amancloud1985/apache-ubuntu:v1")
                    }
                 }
 	   }
@@ -47,9 +47,6 @@ pipeline {
            stage('Deploy to K8s') { 
                 steps{
                    echo "Deployment started ..."
-		   sh 'ls -ltr'
-		   sh 'pwd'
-		   //sh "sed -i 's/devops:latest/devops:${env.BUILD_ID}/g' deployment.yaml"
                    step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 		   echo "Deployment Finished ..."
             }

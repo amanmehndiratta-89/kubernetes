@@ -39,7 +39,7 @@ pipeline {
                    script {
                       // docker.withRegistry('https://gcr.io', 'gcr:gcrprojectname') {
                            // myimage.push("v1")
-			   docker.withRegistry("https://gcr.io", "gcr:gcrprojectname") {
+			   docker.withRegistry("https://gcr.io", "gcr:kubernetes-253920") {
 			      sh "docker push myimage"
                      }
                    }

@@ -6,7 +6,7 @@ metadata:
 spec:
  containers:
    - name: myapp
-     image: amancloud1985/apache-ubuntu:v1
+     image: gcr.io/kubernetes-253920/amancloud1985/apache-ubuntu:v1
 
 ---
 apiVersion: v1

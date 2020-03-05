@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ci.jenkins.gcp</groupId>
     <artifactId>proj1</artifactId>
-    <version>1.0-SANDEEP</version>
+    <version>1.0-aman</version>
     <packaging>pom</packaging>
     <name>Project Build</name>
 
